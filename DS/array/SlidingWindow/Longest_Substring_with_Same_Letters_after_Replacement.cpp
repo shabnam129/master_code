@@ -13,7 +13,7 @@
  
  LOGIC::Start creating window. and while traversing check the character which has occured most and its count...now check the differnece between total element and that max_count...It means we have the difference the amnt of operation we need to do it make same as max_count wala elemnt..If diff > k then this winodow is not valid move element from left..if the left elemnt was the character which has the most elemnt then dec most elemment too.
  
- 
+Youtube video:https://www.youtube.com/watch?v=B_hLmP3Np_8 
 */
 
 using namespace std;
