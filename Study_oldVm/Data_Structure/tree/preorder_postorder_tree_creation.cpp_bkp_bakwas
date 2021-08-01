@@ -1,0 +1,134 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+struct node 
+{
+  int data;
+  struct node *left;
+  struct node *right;
+
+};
+
+
+void preOrder(struct node* );
+
+void printInorder(struct node * );
+char search_in (int * ,  int  , int );
+
+
+struct node * new_node(char data)
+{
+
+  struct node *node = (struct node *) malloc(sizeof(struct node) );
+  node->data = data;
+
+  return node;
+
+}
+
+
+
+
+struct node * buildTree(int pre[] , int post[] , int start , int end)
+
+{
+  static int postindex = end;
+  static int preindex = start;
+  static std::vector< int > queueR;
+  static std::vector< int > queuel;
+
+  struct node *node = new_node(post[postindex--]);
+
+  if(postindex ==end)
+ { 
+   
+   while(pre_index + 1 < end -1)
+  {
+   pre_index = search_in ( pre , postindex->data , end);
+   queuel.pushback(pre[pre_index]  + 1) ; 
+  }  
+           
+  while(postindex -1  < end-1)
+  {
+   pre_index = search_in ( pre , postindex->data , end);
+   queuel.pushback(pre[pre_index]  + 1) ;
+  }
+
+    
+  int pre_index=0;
+  
+  
+
+  if(start > end)
+ {  std::cout << "start ===" << start << "and end== " << end; 
+   return NULL;}
+  struct node *node = new_node(post[postindex--]);
+  queueR.push_back(new_node(post[postindex]);
+
+  if(start==end)
+  return node;
+  
+ pre_index = search_in ( pre , node->data , end);
+
+ node->right = buildTree(pre , post  )//postindex , end);
+ queuel.push_back(new_node(pre[pre_index + 1]);
+ node->left = buildTree(in , pre , start , in_index -1);
+
+
+/* node->left = buildTree(in , pre , start , in_index -1);
+ node->right = buildTree(in , pre , in_index+1 , end); */
+  
+  return node;   
+
+
+
+}
+
+char search_in (int * in  ,  int root, int len )
+{
+std::cout << "\n WE are in search ";
+ int i = 0;
+ int j = 0;
+
+ for( i = 0; i <len; i++)
+ {
+   if(root ==in[i])
+   return i;  
+  
+  }  
+
+
+}
+ 
+    
+
+
+int main()
+{
+
+   int in[]   = {4, 8, 2, 5, 1, 6, 3, 7};
+    int post[] = {8, 4, 5, 2, 6, 7, 3, 1};
+    int n = sizeof(in)/sizeof(in[0]);
+ 
+     struct node  *root = buildTree(in, post,  0 , n-1 );
+ 
+    cout  << "Preorder of the constructed tree : \n";
+    preOrder(root);
+
+ 
+}
+
+
+/* This funtcion is here just to test  */
+void preOrder(struct node* node)
+{
+    if (node == NULL) return;
+    std::cout <<" " <<  node->data;
+
+    preOrder(node->left);
+    preOrder(node->right);
+}    
+
+
+
+

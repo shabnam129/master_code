@@ -1,0 +1,54 @@
+#include <iostream>
+#include <map>
+#include <unordered_map>
+using namespace std;
+
+
+void findSubArray(int * , int);
+int main()
+{
+    int arr[] =   {4, 2, -3, 1, 6};
+    int size = sizeof(arr)/sizeof(arr[0]);
+ 
+    findSubArray(arr, size);
+    return 0;
+}
+
+
+void findSubArray(int *a ,int n)
+
+{
+ 
+ 
+ int i =0;
+
+ unordered_map<int , int> sum_occr;
+ sum_occr.reserve(n);
+
+ int sum = a[0];
+ sum_occr[sum] = 0;
+ for(i=0;i< n ; i++)
+  {
+      
+     sum = sum +a[i];
+     if(sum_occr.find(sum) == sum_occr.end() )
+    { 
+     //not found
+    // int sum = sum+a[i];
+
+       sum_occr[sum]=i; 
+
+    }
+    else
+    {
+
+     //found 
+     std::cout <<"\n sum isfound  i==" << (sum_occr[sum] + 1)  <<" j===" <<  i;
+ 
+    }
+
+  } //end of for loop 
+
+}
+
+

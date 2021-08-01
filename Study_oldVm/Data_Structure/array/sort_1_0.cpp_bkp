@@ -1,0 +1,77 @@
+#include <iostream>
+
+const int size = 6;
+
+int main()
+{
+ int i;
+ int a[size];
+ int data;
+ std::cout <<"\n Enter the array eleme";
+ for (i = 0; i< size ;i++)
+ {
+   std::cin>> data;
+   a[i] =data;
+ }
+  
+ int *l = &  a[0 ];
+ int *r = &  a[size-1];
+
+ for( i = 0 ; l<=r ; i++)
+ {
+
+
+    
+
+  if( *l < *r)
+   {
+      l++;
+      r--;
+      continue;
+   }
+
+  if( *l > *r)
+  {
+   //swapp
+   int temp = *l;
+   *l = *r;
+   *r = temp;
+  
+   l++;
+   r--;
+   continue;  
+
+  }
+
+  if( (*l) == *r )
+   {
+      if(*r == 1) 
+      r--;
+      else 
+   l++;
+
+   }
+
+ }
+
+ 
+ //print array
+ std::cout <<"\n modified array\n";
+
+  for (i = 0; i< size ;i++)
+ {
+   std::cout <<  a[i];
+ }
+ 
+ 
+
+
+
+}
+ 
+
+
+  
+  
+  
+  

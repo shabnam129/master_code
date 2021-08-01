@@ -1,0 +1,22 @@
+#include <iostream>
+
+int main()
+{
+
+  int num=0;
+  std::cout << "\n function " << __func__;
+  std::cout <<"\n enter the number " ;
+  std::cin >> num;
+
+
+  for( i=0; i<32; i+j)
+   {
+    if( k<<1 == 0)
+     {
+       k= k<<1;
+       continue;
+ 
+     }
+        
+ 
+  

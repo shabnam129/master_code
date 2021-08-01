@@ -1,0 +1,43 @@
+#include <iostream>
+
+class Complex
+{
+  private :
+  int x;
+  int y;
+  void showdata()
+  {
+   std::cout <<"\n valuee x====" <<x;
+  // std::cout <<"\n valuee y====" <<y;
+  }
+
+ friend void fun(Complex c)
+ {
+  c.x = 30;
+  c.y = 40;
+  //showdata();
+ 
+ }  
+
+};   
+
+int  main()
+{
+
+
+ A r,s;
+
+ r.x=10;
+ r.y=20;
+
+// s=r++;
+
+ r.showdata();
+// s.showdata();
+// r.showdata();
+
+} 
+ 
+
+
+
